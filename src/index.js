@@ -1,5 +1,5 @@
-import passkey from './passkeys.json' assert {type: 'json'};
-import { Client, IntentsBitField } from 'discord.js';
+require('dotenv').config();
+const { Client, IntentsBitField } = require('discord.js');
 
 const client = new Client({
     intents: [
@@ -14,14 +14,16 @@ client.on('ready', () => {
     console.log(`✅ ${client.user.username} is up and running!`)
 });
 
-client.on('messageCreate', (message) => {
-    if (message.author.bot) {
-        return;
+client.on('interactionCreate', (interaction) => {
+    if (!interaction.isChatInputCommand()) return;
+
+    if (interaction.commandName === 'ping') {
+        interaction.reply(':ping_pong:')
     }
 
-    if (message.content === 'ping') {
-        message.reply(':ping_pong: ')
+    if (interaction.commandName === 'help') {
+        interaction.reply('shut your bitch ass mouth up')
     }
 })
 
-client.login(passkey.token);
+client.login(process.env.token);
