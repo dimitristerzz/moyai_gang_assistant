@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, IntentsBitField } = require('discord.js');
+const { Client, IntentsBitField, ActivitityType, ActivityType } = require('discord.js');
 
 const client = new Client({
     intents: [
@@ -12,6 +12,11 @@ const client = new Client({
 
 client.on('ready', () => {
     console.log(`✅ ${client.user.username} is up and running!`)
+
+    client.user.setActivity({
+        name: "you through your closet",
+        type: ActivityType.Watching
+    })
 });
 
 client.on('interactionCreate', (interaction) => {

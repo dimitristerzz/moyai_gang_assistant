@@ -11,7 +11,7 @@ const rest = new REST({ version: '10' }).setToken(process.env.token);
             Routes.applicationGuildCommand(
                 process.env.clientId,
                 process.env.guildId,
-                "1159234246892859443"
+                ""
             )
         )
     
