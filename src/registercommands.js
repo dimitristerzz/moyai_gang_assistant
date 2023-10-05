@@ -3,13 +3,9 @@ const { REST, Routes } = require('discord.js')
 
 const commands = [
     {
-        name: 'ping',
-        description: 'Pong'
-    },
-    {
-        name: 'help',
-        description: 'Help command'
-    },
+        name: 'embed',
+        description: 'Sends an embed.',
+    }
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.token);
